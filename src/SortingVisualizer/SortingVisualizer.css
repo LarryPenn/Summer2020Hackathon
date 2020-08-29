@@ -1,11 +1,12 @@
 .array-container{
     position: absolute;
-    left: 100px;
+    left: 200px;
+    vertical-align: center;
 }
 
 .array-bar{
     width: 10px;
-    background-color: turquoise;
+    color: magenta;
     display: inline-block;
     margin: 0 1px;
 }
@@ -13,14 +14,21 @@
 
 .array-bar2{
     width: 10px;
-    background-color: turquoise;
+    background-color: orange;
     display: inline-block;
     margin: 0 1px;
 }
 
 .array-bar3{
     width: 10px;
-    background-color: turquoise;
+    background-color: rgb(113, 205, 113);
+    display: inline-block;
+    margin: 0 1px;
+}
+
+.array-bar4{
+    width: 10px;
+    background-color: rgb(213, 210, 131);
     display: inline-block;
     margin: 0 1px;
 }
@@ -31,4 +39,82 @@
 
 .hidden-button{
     visibility: hidden;
+    margin: 50px 30px;
 }
+
+.button-reset{
+    background: rgb(232, 232, 232);
+    border-radius: 5px;
+    padding: 10px 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 10px 15px;
+    border-style: solid
+  }  
+  
+  .button-merge {
+    background: turquoise;
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 15px;
+    border-style: solid
+  } 
+
+  .button-quick {
+    background: orange;
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 15px;
+    border-style: solid
+  }  
+
+  .button-bubble{
+    background: rgb(113, 205, 113);
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 15px;
+    border-style: solid
+  }    
+
+  .button-heap {
+    background: rgb(213, 210, 131);
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0px 15px;
+    border-style: solid
+  }  
+
+  .button-all {
+    background: rgb(60, 58, 58);
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 15px;
+    border-style: solid
+  }  
