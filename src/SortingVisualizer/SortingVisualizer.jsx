@@ -68,28 +68,17 @@ export default class SortingVisualizer extends React.Component {
     //this.setState({array});
   }
 
+  
   mergeSort() {
     const animations = getMergeSortAnimations(this.state.array);
     for (let i = 0; i < animations.length; i++) {
-      console.log(animations[i]);
       const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = i % 3 !== 2;
-      if (isColorChange) {
-        const [barOneIdx, barTwoIdx] = animations[i];
+      
+        setTimeout(() => {
+          const [barOneIdx, barOneHeight] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-        setTimeout(() => {
-          barOneStyle.backgroundColor = color;
-          barTwoStyle.backgroundColor = color;
+          barOneStyle.height = `${barOneHeight}px`;
         }, i * ANIMATION_SPEED_MS);
-      } else {
-        setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }, i * ANIMATION_SPEED_MS);
-      }
     }
   }
 
@@ -99,7 +88,7 @@ export default class SortingVisualizer extends React.Component {
     const animations = getQuickSortAnimations(this.state.array2);
     for (let i = 0; i < animations.length; i++) {
       //   console.log(animations[i]);
-      const arrayBars = document.getElementsByClassName('array-bar2');
+      const arrayBars = document.getElementsByClassName('array-bar');
       setTimeout(() => {
         const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
@@ -116,7 +105,7 @@ export default class SortingVisualizer extends React.Component {
     const animations = getBubbleSortAnimations(this.state.array3);
     for (let i = 0; i < animations.length; i++) {
       console.log(animations[i]);
-      const arrayBars = document.getElementsByClassName('array-bar3');
+      const arrayBars = document.getElementsByClassName('array-bar');
       setTimeout(() => {
         const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
