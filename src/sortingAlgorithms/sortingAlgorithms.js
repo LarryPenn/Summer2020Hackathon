@@ -1,3 +1,61 @@
+export function getQuickSortAnimations(array) {
+  const animations = [];
+  if (array.length <= 1) return array;
+  quickSortHelper(array, 0, array.length - 1, animations);
+  //console.log(array);
+
+  return animations;
+}
+
+function quickSortHelper(
+  mainArray,
+  startIdx,
+  endIdx,
+  animations,
+) {
+  if (startIdx < endIdx) {
+    let pi = partition(mainArray, startIdx, endIdx, animations);
+    quickSortHelper(mainArray, startIdx, pi - 1, animations);
+    quickSortHelper(mainArray, pi + 1, endIdx, animations);
+  }
+
+  return animations;
+}
+
+function partition(
+  mainArray,
+  startIdx,
+  endIdx,
+  animations
+) {
+  const pivot = mainArray[endIdx];
+  let i = startIdx - 1;
+  for (let j = startIdx; j < endIdx; j++) {
+    // If current element is smaller than the pivot 
+    if (mainArray[j] < pivot) {
+      i = i + 1;
+
+      // swap arr[i] and arr[j] 
+      const temp = mainArray[i];
+      mainArray[i] = mainArray[j];
+      mainArray[j] = temp;
+      animations.push([i, j, mainArray[i], mainArray[j]]);
+    }
+  }
+
+  // swap arr[i+1] and arr[high] (or pivot) 
+  const temp = mainArray[i + 1];
+  mainArray[i + 1] = mainArray[endIdx];
+  mainArray[endIdx] = temp;
+  animations.push([i + 1, endIdx, mainArray[i + 1], mainArray[endIdx]]);
+
+
+  return i + 1;
+}
+
+
+
+
 export function getMergeSortAnimations(array) {
   const animations = [];
   if (array.length <= 1) return array;
