@@ -1,21 +1,3 @@
-/* TO-DO:
-
-Basics:
- -add heap-sort - L
- -add timer (either total or stopwatch) - V
- -remove mergesort color -C
- -improve layout (whitespace, grid layout etc) - V 
- -let user choose length of array - C
-
- Bonuses:
- -sorting speed
-
-
- */
-
-
-
-
 import React from 'react';
 import { getMergeSortAnimations } from '../sortingAlgorithms/sortingAlgorithms.js';
 import { getQuickSortAnimations } from '../sortingAlgorithms/sortingAlgorithms.js';
@@ -28,10 +10,10 @@ import './SortingVisualizer.css';
 
 
 // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 50;
+const ANIMATION_SPEED_MS = 10;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 50;
+const NUMBER_OF_ARRAY_BARS = 80;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -44,10 +26,15 @@ export default class SortingVisualizer extends React.Component{
         super(props);
 
         this.state = {
+            arrayUnsorted: [],
             array: [],
             array2: [],
             array3: [],
             array4: [],
+            bubbleTime: 0,
+            quickTime: 0,
+            heapTime: 0,
+            mergeTime: 0,
         };
     }
 
@@ -57,47 +44,51 @@ export default class SortingVisualizer extends React.Component{
     }
 
     resetArray() {
+        const arrayUnsorted = [];
         const array = [];
+        const array2 = [];
+        const array3 = [];
+        const array4 = [];
+
         for(let i=0;i<NUMBER_OF_ARRAY_BARS;i++){
-            array.push(randomIntFromInterval(5,300));
+            let randInt = randomIntFromInterval(5,280);
+            arrayUnsorted.push(randInt);
+            array.push(randInt);
+            array2.push(randInt);
+            array3.push(randInt);
+            array4.push(randInt);                        
         }
-        const array2 = array;
-        const array3 = array;
-        const array4 = array;
+
+        // const array2 = array.slice();
+        // const array3 = array.slice();
+        // const array4 = array.slice();
         this.setState({array});
         this.setState({array2});
         this.setState({array3});
-        this.setState({array4});                
+        this.setState({array4}); 
+        this.setState({arrayUnsorted});               
         //this.setState({array});
     }
 
-    // mergeSort() {
-    //     const animations = getMergeSortAnimations(this.state.array2);
-    //     for (let i = 0; i < animations.length; i++) {
-    //       console.log(animations[i]);  
-    //       const arrayBars = document.getElementsByClassName('array-bar');
-    //       const isColorChange = i % 3 !== 2;
-    //       if (isColorChange) {
-    //         const [barOneIdx, barTwoIdx] = animations[i];
-    //         const barOneStyle = arrayBars[barOneIdx].style;
-    //         const barTwoStyle = arrayBars[barTwoIdx].style;
-    //         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-    //         setTimeout(() => {
-    //           barOneStyle.backgroundColor = color;
-    //           barTwoStyle.backgroundColor = color;
-    //         }, i * ANIMATION_SPEED_MS);
-    //       } else {
-    //         setTimeout(() => {
-    //           const [barOneIdx, newHeight] = animations[i];
-    //           const barOneStyle = arrayBars[barOneIdx].style;
-    //           barOneStyle.height = `${newHeight}px`;
-    //         }, i * ANIMATION_SPEED_MS/50);
-    //       }
-    //     }
-    //   }
-
     mergeSort() {
+        console.log(this.state.array);
         const animations = getMergeSortAnimations(this.state.array);
+
+        // for (let i = 0; i < this.state.arrayUnsorted.length; i++) {
+        //     const arrayBars = document.getElementsByClassName('array-bar');
+        //         const [barOneIdx, barOneHeight] = this.state.arrayUnsorted[i];
+        //       const barOneStyle = arrayBars[barOneIdx].style;
+        //         barOneStyle.height = `${barOneHeight}px`; 
+        //   }
+
+        for(let i=0;i<this.state.arrayUnsorted.length;i++){
+            //let barOneHeight = this.state.arrayUnsorted[i];
+            let barOneHeight = 50;
+            const arrayBars = document.getElementsByClassName('array-bar');            
+            const barOneStyle = arrayBars[i].style;
+            barOneStyle.height = `${barOneHeight}px`;
+        }
+
         for (let i = 0; i < animations.length; i++) {
           const arrayBars = document.getElementsByClassName('array-bar');
           
@@ -112,12 +103,12 @@ export default class SortingVisualizer extends React.Component{
       quickSort() {
         // We leave it as an exercise to the viewer of this code to implement this method.
     
-        const animations = getQuickSortAnimations(this.state.array2);
-        for (let i = 0; i < animations.length; i++) {
+        const animations2 = getQuickSortAnimations(this.state.array2);
+        for (let i = 0; i < animations2.length; i++) {
           //   console.log(animations[i]);
           const arrayBars = document.getElementsByClassName('array-bar2');
           setTimeout(() => {
-            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations[i];
+            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations2[i];
             const barOneStyle = arrayBars[barOneIdx].style;
             const barTwoStyle = arrayBars[barTwoIdx].style;
             barOneStyle.height = `${barOneHeight}px`;
@@ -130,12 +121,12 @@ export default class SortingVisualizer extends React.Component{
     bubbleSort() {
         // We leave it as an exercise to the viewer of this code to implement this method.
     
-        const animations = getBubbleSortAnimations(this.state.array);
-        for (let i = 0; i < animations.length; i++) {
-          console.log(animations[i]);
+        const animations3 = getBubbleSortAnimations(this.state.array3);
+        for (let i = 0; i < animations3.length; i++) {
+          //console.log(animations[i]);
           const arrayBars = document.getElementsByClassName('array-bar3');
           setTimeout(() => {
-            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations[i];
+            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations3[i];
             const barOneStyle = arrayBars[barOneIdx].style;
             const barTwoStyle = arrayBars[barTwoIdx].style;
             barOneStyle.height = `${barOneHeight}px`;
@@ -147,12 +138,12 @@ export default class SortingVisualizer extends React.Component{
     heapSort() {
         // We leave it as an exercise to the viewer of this code to implement this method.
     
-        const animations = getHeapSortAnimations(this.state.array);
-        for (let i = 0; i < animations.length; i++) {
+        const animations4 = getHeapSortAnimations(this.state.array4);
+        for (let i = 0; i < animations4.length; i++) {
           //   console.log(animations[i]);
           const arrayBars = document.getElementsByClassName('array-bar4');
           setTimeout(() => {
-            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations[i];
+            const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] = animations4[i];
             const barOneStyle = arrayBars[barOneIdx].style;
             const barTwoStyle = arrayBars[barTwoIdx].style;
             barOneStyle.height = `${barOneHeight}px`;
@@ -162,11 +153,43 @@ export default class SortingVisualizer extends React.Component{
       }
     
     allSort() {
+        let mergeStart = Date.now(); // milliseconds count from 1 Jan 1970           
+        this.mergeSort();         
+        let mergeEnd = Date.now(); // milliseconds count from 1 Jan 1970  
+        let bubbleStart = Date.now(); // milliseconds count from 1 Jan 1970        
         this.bubbleSort();
+        let bubbleEnd = Date.now(); // milliseconds count from 1 Jan 1970
+        let quickStart = Date.now(); // milliseconds count from 1 Jan 1970              
         this.quickSort();   
-        this.heapSort();  
-        this.mergeSort();                    
+        let quickEnd = Date.now(); // milliseconds count from 1 Jan 1970  
+        let heapStart = Date.now(); // milliseconds count from 1 Jan 1970                        
+        this.heapSort(); 
+        let heapEnd = Date.now(); // milliseconds count from 1 Jan 1970             
+        
+        let bubbleTime = bubbleEnd - bubbleStart;
+        let quickTime = quickEnd - quickStart;
+        let heapTime = heapEnd - heapStart;
+        let mergeTime = mergeEnd - mergeStart; 
+        
+        this.setState({bubbleTime});
+        this.setState({quickTime});
+        this.setState({heapTime});
+        this.setState({mergeTime});
+        
+        console.log(bubbleTime);
+        console.log(quickTime);
+        console.log(heapTime);                
+        console.log(mergeTime);                          
     }   
+
+    allSort2() {        
+        this.mergeSort();              
+        this.bubbleSort();           
+        this.quickSort();                        
+        this.heapSort(); 
+         
+                            
+    }       
 
 
         render() {
@@ -174,8 +197,6 @@ export default class SortingVisualizer extends React.Component{
             const { array2 } = this.state;
             const { array3 } = this.state;
             const { array4 } = this.state; 
-
-
 
             return (
               <div id="parent"> 
@@ -225,51 +246,19 @@ export default class SortingVisualizer extends React.Component{
                 <button class="button-quick" onClick={() => this.quickSort()}>quick sort</button>
                 <button class="button-bubble" onClick={() => this.bubbleSort()}>bubble sort</button>
                 <button class="button-heap" onClick={() => this.heapSort()}>heap sort</button>     
-                <button class="button-all" onClick={() => this.allSort()}>sort all!</button>                                   
-              </div>   
-                       
+                <button class="button-all" onClick={() => this.allSort()}>sort all!</button>  
+
+
+                <div>
+                <button class="button-runtime">run time [ms]:</button>                    
+                <button class="button-mergeTime">{this.state.mergeTime}</button>
+                <button class="button-quickTime">{this.state.quickTime}</button>
+                <button class="button-bubbleTime">{this.state.bubbleTime}</button>
+                <button class="button-heapTime">{this.state.heapTime}</button>                      
+                  </div>  
+
+              </div>                        
             );
-
-
-
-
-        
-            // return (
-            //   <div className="array-containers">
-            //     {array.map((value, idx) => (
-            //       <div
-            //         className="array-bar"
-            //         key={idx}
-            //         style={{
-            //           backgroundColor: PRIMARY_COLOR,
-            //           height: `${value}px`,
-            //         }}></div>                
-            //     ))}
-            //     {array2.map((value, idx) => (
-            //       <div
-            //         className="array-bar2"
-            //         key={idx}
-            //         style={{
-            //         //   backgroundColor: PRIMARY_COLOR,
-            //           height: `${value}px`,
-            //         }}></div>                
-            //     ))}     
-            //     {array3.map((value, idx) => (
-            //       <div
-            //         className="array-bar3"
-            //         key={idx}
-            //         style={{
-            //         //   backgroundColor: PRIMARY_COLOR,
-            //           height: `${value}px`,
-            //         }}></div>                
-            //     ))}                             
-            //     <button onClick={() => this.resetArray()}>Generate New Array</button>
-            //     <button onClick={() => this.mergeSort()}>Merge Sort1</button>
-            //     <button onClick={() => this.quickSort()}>Quick Sort2</button>
-            //     <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
-            //     <button onClick={() => this.allSort()}>All Sort</button>                
-            //   </div>              
-            // );
           }
 }
 

@@ -5,7 +5,7 @@
 }
 
 .array-bar{
-    width: 10px;
+    width: 5px;
     color: magenta;
     display: inline-block;
     margin: 0 1px;
@@ -13,22 +13,23 @@
 
 
 .array-bar2{
-    width: 10px;
+    width: 5px;
     background-color: orange;
     display: inline-block;
     margin: 0 1px;
 }
 
 .array-bar3{
-    width: 10px;
+    width: 5px;
     background-color: rgb(113, 205, 113);
     display: inline-block;
     margin: 0 1px;
 }
 
 .array-bar4{
-    width: 10px;
-    background-color: rgb(213, 210, 131);
+    width: 5px;
+    background-color: rgb(243, 166, 179);
+    /* background-color: rgb(213, 210, 131); */
     display: inline-block;
     margin: 0 1px;
 }
@@ -95,7 +96,7 @@
   }    
 
   .button-heap {
-    background: rgb(213, 210, 131);
+    background:  rgb(243, 166, 179);
     border-radius: 100px;
     padding: 10px 10px;
     color: #fff;
@@ -116,5 +117,69 @@
     font: futura;
     font-weight: bold;
     margin: 0 15px;
+    border-style: solid
+  }  
+
+  .button-runtime {
+    background: white;
+    border-radius: 100px;
+    padding: 10px 50px 10px 10px;
+    color: black;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 0px;
+    border-style: none;
+  }  
+
+  .button-mergeTime {
+    background: turquoise;
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 60px 0 30px;
+    border-style: solid
+  } 
+
+  .button-quickTime {
+    background: orange;
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 60px;
+    border-style: solid
+  }  
+
+  .button-bubbleTime{
+    background: rgb(113, 205, 113);
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0 60px;
+    border-style: solid
+  }    
+
+  .button-heapTime {
+    background:  rgb(243, 166, 179);
+    border-radius: 100px;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25em;
+    font: futura;
+    font-weight: bold;
+    margin: 0px 100px 0 60px;
     border-style: solid
   }  
