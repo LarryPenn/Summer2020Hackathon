@@ -4,7 +4,6 @@ import { getQuickSortAnimations } from '../sortingAlgorithms/sortingAlgorithms.j
 import { getBubbleSortAnimations } from '../sortingAlgorithms/sortingAlgorithms.js';
 import { getHeapSortAnimations } from '../sortingAlgorithms/sortingAlgorithms.js';
 import './SortingVisualizer.css';
-import { timeSaturday } from 'd3';
 
 
 
