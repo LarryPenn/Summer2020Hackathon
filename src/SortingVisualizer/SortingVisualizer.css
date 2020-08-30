@@ -8,7 +8,7 @@
     width: 5px;
     color: magenta;
     display: inline-block;
-    margin: 0 1px;
+    margin: 0 0.5px;
 }
 
 
@@ -16,14 +16,14 @@
     width: 5px;
     background-color: orange;
     display: inline-block;
-    margin: 0 1px;
+    margin: 0 0.5px;
 }
 
 .array-bar3{
     width: 5px;
     background-color: rgb(113, 205, 113);
     display: inline-block;
-    margin: 0 1px;
+    margin: 0 0.5px;
 }
 
 .array-bar4{
@@ -31,7 +31,7 @@
     background-color: rgb(243, 166, 179);
     /* background-color: rgb(213, 210, 131); */
     display: inline-block;
-    margin: 0 1px;
+    margin: 0 0.5px;
 }
 
 .white-space{
