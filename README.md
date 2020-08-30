@@ -1,4 +1,4 @@
-# Project Title: Sorting Algorithm Visualizer
+# Sorting Algorithm Visualizer
 
 ## Overview
 
