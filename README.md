@@ -28,8 +28,6 @@ which would open http://localhost:3000 for you to view the visualizer in the bro
 
 ### Tools used
 
-Which frameworks, libraries, or other tools did you use to create your project?
-
 * [React](https://reactjs.org/) - Description: A JavaScript library for building user interfaces
 
 
