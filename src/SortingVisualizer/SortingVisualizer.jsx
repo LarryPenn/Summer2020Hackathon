@@ -81,13 +81,13 @@ export default class SortingVisualizer extends React.Component{
         //         barOneStyle.height = `${barOneHeight}px`; 
         //   }
 
-        for(let i=0;i<this.state.arrayUnsorted.length;i++){
-            //let barOneHeight = this.state.arrayUnsorted[i];
-            let barOneHeight = 50;
-            const arrayBars = document.getElementsByClassName('array-bar');            
-            const barOneStyle = arrayBars[i].style;
-            barOneStyle.height = `${barOneHeight}px`;
-        }
+//         for(let i=0;i<this.state.arrayUnsorted.length;i++){
+//             //let barOneHeight = this.state.arrayUnsorted[i];
+//             let barOneHeight = 50;
+//             const arrayBars = document.getElementsByClassName('array-bar');            
+//             const barOneStyle = arrayBars[i].style;
+//             barOneStyle.height = `${barOneHeight}px`;
+//         }
 
         for (let i = 0; i < animations.length; i++) {
           const arrayBars = document.getElementsByClassName('array-bar');
